@@ -62,18 +62,18 @@ const sendFeedback = (choice: number) => {
       <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-white/15 backdrop-blur-sm"></div>
       <div className="w-full max-w-5xl relative z-10 px-4">
         {showThankYou ? (
-          <div className="bg-gradient-to-r from-emerald-50/95 to-green-50/95 backdrop-blur-md border-2 border-emerald-200/50 rounded-3xl p-12 text-center shadow-2xl transform animate-pulse">
+          <div className="bg-gradient-to-r from-emerald-50/95 to-green-50/95 backdrop-blur-md border-2 border-emerald-200/50 rounded-3xl p-12 text-center shadow-2xl transform animate-in fade-in-0 zoom-in-95 duration-500">
             <div className="mb-6">
-              <div className="inline-block p-4 bg-emerald-100/80 rounded-full mb-4">
+              <div className="inline-block p-4 bg-emerald-100/80 rounded-full mb-4 animate-in zoom-in-0 duration-700 delay-150">
                 <svg className="w-16 h-16 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-emerald-700 mb-4">
+            <h1 className="text-5xl md:text-7xl font-bold text-emerald-700 mb-4 animate-in slide-in-from-bottom-4 duration-600 delay-300">
               ¡Gracias!
             </h1>
-            <p className="text-xl md:text-2xl text-emerald-600 font-medium">
+            <p className="text-xl md:text-2xl text-emerald-600 font-medium animate-in slide-in-from-bottom-2 duration-500 delay-500">
               Su opinión es muy importante para nosotros
             </p>
           </div>
@@ -143,11 +143,14 @@ const sendFeedback = (choice: number) => {
               
               {/* Rating labels */}
               <div className="flex justify-center items-center gap-4 md:gap-8 mt-6 text-sm md:text-base text-gray-600 font-medium flex-wrap">
-                <span className="text-center min-w-[80px]">Muy malo</span>
-                <span className="text-center min-w-[80px]">Malo</span>
-                <span className="text-center min-w-[80px]">Regular</span>
-                <span className="text-center min-w-[80px]">Bueno</span>
-                <span className="text-center min-w-[80px]">Excelente</span>
+                {['Muy malo', 'Malo', 'Regular', 'Bueno', 'Excelente'].map((label, index) => (
+                  <span 
+                    key={index} 
+                    className="text-center w-20 md:w-24 lg:w-28"
+                  >
+                    {label}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
